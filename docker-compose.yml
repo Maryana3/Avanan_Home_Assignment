@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    command: gunicorn -b 0.0.0.0:8000 --threads 16 dlp.wsgi
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
